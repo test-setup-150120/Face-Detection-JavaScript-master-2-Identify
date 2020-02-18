@@ -33,23 +33,16 @@ video.addEventListener('play', () => {
       drawBox.draw(canvas) 
     })
 
-  }, 100)
+  }, 1000)
 })
 
 function loadLabeledImages() {
-  const labels = ['test']
+  const labels = ['Usman', 'Farhan']
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
       for (let i = 1; i <= 3; i++) {
-        if (i === 1) {
-           const img = await faceapi.fetchImage(`https://drive.google.com/open?id=11d6Q4yq7DW0q8ODG9Or3w8LEo__2iXYR`);
-        } else if(i === 2) {
-           const img = await faceapi.fetchImage(`https://drive.google.com/open?id=13cz1QGx4tdnsVeiISaSQWfx9bvJRjxR0`);
-        } else {
-           const img = await faceapi.fetchImage(`https://drive.google.com/open?id=1V8V9dPi3zrg9c2sHmHRitRfkg1Vsh2E2`);
-        }
-
+           const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/test-setup-150120/Face-Detection-JavaScript-master-2-Identify/master/images/${label}/${1}.jpg`);
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
       }
