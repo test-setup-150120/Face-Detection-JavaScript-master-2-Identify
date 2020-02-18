@@ -33,11 +33,11 @@ video.addEventListener('play', () => {
       drawBox.draw(canvas) 
     })
 
-  }, 1000)
+  }, 5000)
 })
 
 function loadLabeledImages() {
-  const labels = ['Usman', 'Farhan']
+  const labels = ['Farhan']
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
